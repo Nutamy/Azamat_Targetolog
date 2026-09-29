@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Азамат Жеңісұлы — Таргетолог (Алматы) | Коммерческое предложение</title>
     <meta name="description" content="Таргетированная реклама в Instagram, Facebook и TikTok от Азамата Жеңісұлы. Опыт 4+ года, ТЗ для видеокреативов, цель — ROI 1:3. Алматы, WhatsApp: +7 702 999 29 38.">
     <meta name="theme-color" content="#2563EB">
@@ -25,6 +25,8 @@
             -moz-osx-font-smoothing: grayscale;
         }
         @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+        /* Keep keyboard focus clear of the sticky header and mobile CTA bar */
+        html { scroll-padding-top: 88px; scroll-padding-bottom: 96px; }
         :focus-visible { outline: 3px solid #2563EB; outline-offset: 3px; }
         /* Interactive cards lift on hover; static blocks keep the same look without the false affordance */
         .neo-box, .neo-static {
@@ -93,7 +95,7 @@
 
 
     <header class="sticky top-0 z-50 bg-[#F8FAFC]/90 backdrop-blur-md border-b-3 border-[#0F172A] py-3 px-4 md:px-8">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-lg bg-neoBlue border-3 border-black flex items-center justify-center font-black text-white text-xl shadow-neo" aria-hidden="true">
                     АЖ
@@ -104,7 +106,7 @@
                 </div>
             </div>
 
-            <nav aria-label="Разделы страницы" class="hidden md:flex items-center gap-1 font-bold text-sm">
+            <nav aria-label="Разделы страницы" class="hidden lg:flex items-center gap-1 font-bold text-sm">
                 <a href="#creative" class="px-3 min-h-[44px] inline-flex items-center rounded-lg hover:bg-neoYellow">Креативы</a>
                 <a href="#timeline" class="px-3 min-h-[44px] inline-flex items-center rounded-lg hover:bg-neoYellow">Процесс</a>
                 <a href="#roi" class="px-3 min-h-[44px] inline-flex items-center rounded-lg hover:bg-neoYellow">Окупаемость</a>
@@ -134,7 +136,7 @@
                     <span>Опыт работы 4+ года • ROI 1:3 и выше</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none uppercase">
+                <h1 class="[overflow-wrap:anywhere] hyphens-auto text-[1.875rem] min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none uppercase">
                     Таргетированная реклама в <span class="bg-neoBlue text-white px-2 py-1 border-2 border-black inline-block rotate-1">Instagram</span>, <span class="bg-neoPurple text-white px-2 py-1 border-2 border-black inline-block -rotate-1">Facebook</span>, <span class="bg-neoPink text-white px-2 py-1 border-2 border-black inline-block rotate-1">TikTok</span>
                 </h1>
 
@@ -563,13 +565,13 @@
     </dialog>
 
     <!-- Sticky mobile CTA (thumb zone), hides on the final contact block -->
-    <div id="mobileBar" class="fixed inset-x-0 bottom-0 z-40 md:hidden bg-[#F8FAFC] border-t-3 border-black px-3 py-2.5" style="padding-bottom:max(.625rem,env(safe-area-inset-bottom))">
+    <aside id="mobileBar" aria-label="Быстрая связь" class="fixed inset-x-0 bottom-0 z-40 md:hidden bg-[#F8FAFC] border-t-3 border-black px-3 py-2.5" style="padding-bottom:max(.625rem,env(safe-area-inset-bottom))">
         <a href="https://wa.me/77029992938?text=Здравствуйте,%20Азамат!%20Хочу%20обсудить%20проект%20по%20таргету." target="_blank" rel="noopener"
            class="neo-button bg-neoBlue text-white min-h-[48px] rounded-xl font-extrabold flex items-center justify-center gap-2">
             <svg class="w-5 h-5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-wa"/></svg>
             <span>Написать в WhatsApp</span>
         </a>
-    </div>
+    </aside>
 
     <script>
     (function () {
