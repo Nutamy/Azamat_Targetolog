@@ -1,0 +1,34 @@
+# Working materials: screenshots, drafts, AI outputs (not part of the site)
+Claude outputs/
+/drafts/
+/_work/
+*.psd
+*.fig
+*.sketch
+
+# Tailwind build tooling
+node_modules/
+tailwind/node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+
+# Cloudflare / local env
+.wrangler/
+.dev.vars
+.env
+.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
