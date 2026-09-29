@@ -35,7 +35,7 @@
 - **Калькулятор ROI** (вариант 1) — ползунок бюджета, считает целевой возврат ×3 и чистую прибыль.
 - **Быстрая загрузка** — портрет в AVIF / WebP / JPEG с `srcset`, `fetchpriority="high"` для LCP, CSS собран Tailwind'ом и минифицирован, без JS-фреймворков.
 - **Доступность** — семантическая разметка, `aria`-вкладки с управлением стрелками, видимый фокус, `prefers-reduced-motion`, пауза бегущей строки.
-- **Превью в мессенджерах** — Open Graph и Twitter Card с картинкой `og.jpg` 1200×630.
+- **Превью в мессенджерах** — Open Graph и Twitter Card с картинкой `og-card.jpg` 1200×630 (baseline JPEG — прогрессивный WhatsApp показывает маленькой миниатюрой).
 - **Безопасность** — заголовки CSP, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy` в [`_headers`](_headers).
 
 ## Структура
@@ -48,7 +48,7 @@
 ├── v3.html / v3.css      # classic variant
 ├── azamat-*.{avif,webp,jpg}       # portrait, white backdrop (v2, v3)
 ├── azamat-dark-*.{avif,webp,jpg}  # mirrored portrait, bronze backdrop (v1)
-├── og.jpg                # link preview image
+├── og-card.jpg           # link preview image (baseline JPEG)
 ├── docs/                 # README screenshots
 ├── _headers              # Cloudflare Pages security headers
 └── tailwind/             # Tailwind configs and build scripts
