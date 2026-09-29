@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Азамат Жеңісұлы — таргетолог в Алматы | 3 варианта сайта</title>
+<meta name="description" content="Сайт-визитка таргетолога Азамата Жеңісұлы: три варианта дизайна для сравнения. Таргетированная реклама в Instagram, Facebook и TikTok, Алматы.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0F172A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F172A'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='26' font-weight='700' text-anchor='middle' fill='%23fff'%3E%D0%90%D0%96%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bar-h:56px;
+    --bg:#0F172A; --fg:#E2E8F0; --muted:#94A3B8; --line:rgba(248,250,252,.12);
+    --tab:#1E293B; --tab-active:#F8FAFC; --tab-active-fg:#0F172A;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);
+    font:500 14px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .bar{position:fixed;inset:0 0 auto 0;height:var(--bar-h);z-index:10;display:flex;align-items:center;gap:12px;
+    padding:0 max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));
+    background:var(--bg);border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .logo{flex:none;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;
+    background:#F8FAFC;color:#0F172A;font-weight:800;font-size:12px}
+  .brand b{display:block;font-size:14px;white-space:nowrap}
+  .brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px;white-space:nowrap}
+  .tabs{display:flex;gap:4px;padding:4px;margin:0 auto;border-radius:12px;background:var(--tab)}
+  .tab{appearance:none;border:0;cursor:pointer;min-height:40px;padding:0 14px;border-radius:9px;
+    background:transparent;color:var(--muted);font:inherit;font-weight:600;display:flex;align-items:center;gap:8px;white-space:nowrap;
+    transition:background-color .2s,color .2s}
+  .tab:hover{color:var(--fg)}
+  .num::after{content:" ·";}
+  .tab[aria-selected="true"]{background:var(--tab-active);color:var(--tab-active-fg)}
+  .tab:focus-visible,.open:focus-visible{outline:2px solid #38BDF8;outline-offset:2px}
+  .dot{width:10px;height:10px;border-radius:50%;flex:none;box-shadow:0 0 0 1px rgba(0,0,0,.25)}
+  .open{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px;border-radius:9px;
+    border:1px solid var(--line);color:var(--fg);text-decoration:none;font-weight:600}
+  .open:hover{border-color:#F8FAFC}
+  .frame{position:fixed;inset:var(--bar-h) 0 0 0;width:100%;height:calc(100% - var(--bar-h));border:0;background:#fff}
+  /* Phones: tabs take the full bar, brand and "open" label collapse */
+  @media (max-width:720px){
+    .brand{display:none}
+    .tabs{margin:0;flex:1}
+    .tab{flex:1;justify-content:center;padding:0 6px;gap:6px;font-size:13px}
+    .num{display:none}
+    .open span{display:none}
+    .open{padding:0 10px}
+  }
+  @media (max-width:340px){ .lbl{display:none} .num{display:inline} .num::after{content:none} }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="brand">
+    <span class="logo" aria-hidden="true">АЖ</span>
+    <span><b>Азамат Жеңісұлы</b><small>таргетолог · Алматы</small></span>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Варианты дизайна">
+    <button class="tab" role="tab" id="tab-v1" aria-controls="view" data-v="v1"><span class="dot" style="background:#B45309"></span><span class="num">1</span><span class="lbl">Классика</span></button>
+    <button class="tab" role="tab" id="tab-v2" aria-controls="view" data-v="v2"><span class="dot" style="background:#2563EB"></span><span class="num">2</span><span class="lbl">Яркий</span></button>
+    <button class="tab" role="tab" id="tab-v3" aria-controls="view" data-v="v3"><span class="dot" style="background:#10B981"></span><span class="num">3</span><span class="lbl">Тёмный</span></button>
+  </div>
+
+  <a class="open" id="openNew" href="v1.html" target="_blank" rel="noopener" aria-label="Открыть вариант в новой вкладке">
+    <span>Открыть отдельно</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+  </a>
+</header>
+
+<iframe id="view" class="frame" role="tabpanel" title="Вариант сайта" src="about:blank"></iframe>
+
+<script>
+(function () {
+  'use strict';
+  var VARIANTS = ['v1', 'v2', 'v3'];
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var frame = document.getElementById('view');
+  var openNew = document.getElementById('openNew');
+
+  // Hash is the source of truth so each variant has a shareable link (#v2); localStorage only remembers the last pick.
+  function initial() {
+    var h = location.hash.slice(1);
+    if (VARIANTS.indexOf(h) > -1) return h;
+    try { var s = localStorage.getItem('azamat-variant'); if (VARIANTS.indexOf(s) > -1) return s; } catch (e) {}
+    return 'v1';
+  }
+
+  function show(v, focus) {
+    tabs.forEach(function (t) {
+      var on = t.dataset.v === v;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      if (on && focus) t.focus();
+    });
+    var url = v + '.html';
+    if (frame.getAttribute('src') !== url) frame.setAttribute('src', url);
+    frame.setAttribute('aria-labelledby', 'tab-' + v);
+    openNew.href = url;
+    if (location.hash !== '#' + v) history.replaceState(null, '', '#' + v);
+    try { localStorage.setItem('azamat-variant', v); } catch (e) {}
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t.dataset.v); });
+    // WAI-ARIA tabs pattern: arrows move between tabs
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      show(VARIANTS[(i + d + VARIANTS.length) % VARIANTS.length], true);
+    });
+  });
+
+  window.addEventListener('hashchange', function () {
+    var h = location.hash.slice(1);
+    if (VARIANTS.indexOf(h) > -1) show(h);
+  });
+
+  show(initial());
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+<!-- Security headers live in _headers (Cloudflare Pages). -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Азамат Жеңісұлы — таргетолог в Алматы | Коммерческое предложение</title>
+<meta name="description" content="Коммерческое предложение таргетолога Азамата Жеңісұлы: системная таргетированная реклама в Instagram, Facebook и TikTok с работой на окупаемость. Цель — ROI ×3. WhatsApp: +7 702 999 29 38.">
+<meta name="theme-color" content="#0D0F12">
+<meta property="og:title" content="Азамат Жеңісұлы — таргетированная реклама с ROI ×3">
+<meta property="og:description" content="Таргетолог с опытом 4+ года. Алматы. Готов подключиться к проекту уже на этой неделе.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310B981'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='34' font-weight='700' text-anchor='middle' fill='%230D0F12'%3E%D0%90%3C/text%3E%3C/svg%3E">
+
+<!-- Шрифты: асинхронная загрузка, без блокировки рендера -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"></noscript>
+
+<style>
+  :root{ color-scheme: dark; }
+  html{ scroll-behavior:smooth; }
+  body{ text-rendering:optimizeLegibility; }
+  h1,h2{ text-wrap:balance; }
+  ::selection{ background:rgba(16,185,129,.35); color:#F8FAFC; }
+  ::-webkit-scrollbar{ width:10px } ::-webkit-scrollbar-track{ background:#0D0F12 }
+  ::-webkit-scrollbar-thumb{ background:#242a35; border-radius:8px }
+  :focus-visible{ outline:2px solid #10B981; outline-offset:3px; border-radius:6px; }
+
+  /* ── Декор: аналитическая сетка ── */
+  .bg-grid{ background-image:
+    linear-gradient(rgba(248,250,252,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248,250,252,.045) 1px, transparent 1px);
+    background-size:44px 44px; }
+
+  /* ── Шапка ── */
+  #siteHeader{ transition:background-color .3s ease, border-color .3s ease; }
+  #siteHeader.is-scrolled{ background:rgba(13,15,18,.85);
+    -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
+    border-bottom-color:rgba(248,250,252,.08); }
+
+  /* ── Кнопки (минимум 48px по высоте) ── */
+  .btn-primary{ display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+    min-height:48px; padding:0 1.5rem; border-radius:.9rem; background:#10B981; color:#0D0F12;
+    font-weight:600; font-size:.95rem; text-align:center;
+    box-shadow:0 10px 30px -10px rgba(16,185,129,.55); transition:background-color .2s, box-shadow .2s; }
+  .btn-primary:hover{ background:#34D399; box-shadow:0 14px 34px -10px rgba(16,185,129,.6); }
+  .btn-ghost{ display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+    min-height:48px; padding:0 1.5rem; border-radius:.9rem; border:1px solid rgba(248,250,252,.16);
+    background:rgba(22,25,32,.6); color:#E2E8F0; font-weight:500; font-size:.95rem;
+    transition:border-color .2s, color .2s, background-color .2s; }
+  .btn-ghost:hover{ border-color:rgba(16,185,129,.55); color:#fff; background:rgba(16,185,129,.06); }
+
+  /* ── Мелкие компоненты ── */
+  .eyebrow{ display:inline-flex; align-items:center; gap:.6rem; font-family:ui-monospace,Menlo,monospace;
+    font-size:.75rem; letter-spacing:.24em; text-transform:uppercase; color:#10B981; }
+  .eyebrow::before{ content:""; width:1.6rem; height:1px; background:#10B981; opacity:.7; }
+  .chip{ display:inline-flex; align-items:center; gap:.45rem; padding:.5rem .85rem; border-radius:.75rem;
+    border:1px solid rgba(248,250,252,.1); background:rgba(22,25,32,.75); font-size:.82rem; color:#CBD5E1; }
+  .chip-dark{ background:rgba(13,15,18,.82); border-color:rgba(248,250,252,.14); backdrop-filter:blur(8px); }
+  .chip-accent{ border-color:rgba(16,185,129,.35); background:rgba(16,185,129,.1); color:#34D399; }
+  .icon-chip{ display:grid; place-items:center; width:44px; height:44px; border-radius:.9rem; flex:none;
+    background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.28); color:#10B981; }
+  .ghost-num{ position:absolute; top:.9rem; right:1.15rem; font-family:'Space Grotesk',sans-serif;
+    font-weight:700; font-size:2.6rem; line-height:1; color:rgba(248,250,252,.06); user-select:none; }
+  .soc{ display:grid; place-items:center; width:48px; height:48px; border-radius:.8rem;
+    border:1px solid rgba(248,250,252,.12); color:#CBD5E1; transition:border-color .2s,color .2s; }
+  .soc:hover{ border-color:#10B981; color:#10B981; }
+
+  /* ── Bento-карточки ── */
+  .bento{ position:relative; border-radius:1.25rem; padding:1.5rem;
+    border:1px solid rgba(248,250,252,.08);
+    background:linear-gradient(180deg, rgba(255,255,255,.025), transparent 42%), #161920;
+    transition:border-color .3s, box-shadow .3s; }
+  .bento:hover{ border-color:rgba(16,185,129,.38); box-shadow:0 14px 44px -18px rgba(16,185,129,.28); }
+
+  /* ── Бегущая строка ── */
+  .marquee-track{ animation:marquee 32s linear infinite; will-change:transform; }
+  .marquee:hover .marquee-track, .marquee.is-paused .marquee-track{ animation-play-state:paused; }
+  @keyframes marquee{ from{ transform:translateX(0) } to{ transform:translateX(-100%) } }
+
+  /* ── Появление при скролле ── */
+  .reveal{ opacity:0; transform:translateY(18px);
+    transition:opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  .no-js .reveal{ opacity:1; transform:none; }
+
+  [data-fill]{ transform:scaleX(0); transform-origin:left; transition:transform 1.1s cubic-bezier(.22,.61,.36,1); }
+  [data-fill].is-filled{ transform:scaleX(1); }
+
+  /* ── Анимированная стрелка формулы $1 → $3+ ── */
+  .dashline{ stroke-dasharray:5 7; animation:dashmove 1.1s linear infinite; }
+  @keyframes dashmove{ to{ stroke-dashoffset:-24 } }
+
+  /* ── Слайдер ROI (крупная зона касания) ── */
+  .roi-range{ -webkit-appearance:none; appearance:none; width:100%; height:48px; background:transparent; cursor:pointer; }
+  .roi-range::-webkit-slider-runnable-track{ height:6px; border-radius:999px;
+    background:linear-gradient(90deg,#10B981 var(--fill,16%), rgba(248,250,252,.12) var(--fill,16%)); }
+  .roi-range::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:26px; height:26px; margin-top:-10px;
+    border-radius:50%; background:#F8FAFC; border:3px solid #10B981; box-shadow:0 0 0 6px rgba(16,185,129,.18); }
+  .roi-range::-moz-range-track{ height:6px; border-radius:999px; background:rgba(248,250,252,.12); }
+  .roi-range::-moz-range-progress{ height:6px; border-radius:999px; background:#10B981; }
+  .roi-range::-moz-range-thumb{ width:26px; height:26px; border-radius:50%; background:#F8FAFC;
+    border:3px solid #10B981; box-shadow:0 0 0 6px rgba(16,185,129,.18); }
+
+  /* ── Мобильная плашка ── */
+  #mobileBar{ transition:transform .35s cubic-bezier(.22,.61,.36,1); }
+  #mobileBar.is-hidden{ transform:translateY(110%); }
+
+  /* ── Доступность: уменьшенное движение ── */
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .marquee-track, .dashline{ animation:none; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+    [data-fill]{ transition:none; transform:none; }
+  }
+</style>
+<!-- Utilities after custom styles, as the Play CDN injected them -->
+<link rel="stylesheet" href="v3.css">
+</head>
+
+<!-- Нижний внутренний отступ = место под мобильную плашку (+ safe-area iOS) -->
+<body class="bg-ink font-sans text-slate-300 antialiased pb-[calc(78px+env(safe-area-inset-bottom))] md:pb-0">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[70] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-3 focus:font-semibold focus:text-ink">Перейти к содержимому</a>
+
+<!-- ═══════════ ШАПКА ═══════════ -->
+<header id="siteHeader" class="fixed inset-x-0 top-0 z-40 border-b border-transparent">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="flex h-16 items-center justify-between gap-4 md:h-20">
+      <a href="#top" class="inline-flex min-h-[48px] items-center gap-3">
+        <span class="grid h-10 w-10 place-items-center rounded-xl border border-accent/30 bg-accent/15 font-display text-sm font-bold text-accent">АЖ</span>
+        <span class="hidden leading-tight sm:block">
+          <span class="block text-sm font-semibold text-slate-100">Азамат Жеңісұлы</span>
+          <span class="block text-xs text-slate-400">таргетолог · г. Алматы</span>
+        </span>
+      </a>
+      <nav aria-label="Основная навигация" class="hidden items-center gap-1 md:flex">
+        <a href="#about"    class="inline-flex min-h-[48px] items-center px-3 text-sm text-slate-300 transition-colors hover:text-white">Обо мне</a>
+        <a href="#approach" class="inline-flex min-h-[48px] items-center px-3 text-sm text-slate-300 transition-colors hover:text-white">Подход</a>
+        <a href="#roi"      class="inline-flex min-h-[48px] items-center px-3 text-sm text-slate-300 transition-colors hover:text-white">Окупаемость</a>
+        <a href="#contact"  class="inline-flex min-h-[48px] items-center px-3 text-sm text-slate-300 transition-colors hover:text-white">Контакты</a>
+      </nav>
+      <a data-wa href="https://wa.me/77029992938" target="_blank" rel="noopener" class="btn-primary hidden md:inline-flex">Обсудить проект</a>
+      <!-- Мобильная кнопка в шапке (дублирует нижнюю плашку) -->
+      <a data-wa href="https://wa.me/77029992938" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"
+         class="grid h-12 w-12 place-items-center rounded-xl bg-accent text-ink md:hidden">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="top" class="relative overflow-hidden">
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div class="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,black,transparent)]"></div>
+    <div class="absolute -top-32 right-[-12%] h-[520px] w-[520px] rounded-full bg-accent/10 blur-[120px]"></div>
+    <div class="absolute left-[-15%] top-1/3 h-[420px] w-[420px] rounded-full bg-accent/5 blur-[100px]"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-4 pb-14 pt-28 sm:px-6 md:pb-20 md:pt-40">
+    <div class="grid items-center gap-10 lg:grid-cols-[1.15fr_.85fr] lg:gap-14">
+
+      <!-- Текстовая часть -->
+      <div class="reveal">
+        <p class="inline-flex items-center gap-2.5 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 font-mono text-xs uppercase tracking-[0.22em] text-accent">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full motion-safe:animate-ping rounded-full bg-accent opacity-60"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+          </span>
+          Коммерческое предложение
+        </p>
+
+        <h1 class="mt-6 font-display text-[32px] font-bold leading-[1.08] tracking-tight text-slate-50 sm:text-5xl lg:text-[56px]">
+          Таргетированная реклама, которая <span class="text-accent">окупается ×3</span>
+        </h1>
+
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+          <strong class="font-semibold text-slate-100">Азамат Жеңісұлы</strong>, таргетолог из Алматы. Системный рост продаж через Instagram, Facebook и TikTok — от анализа аудитории и креативов до масштабирования. Ключевая метрика: <strong class="font-semibold text-slate-100">окупаемость вложений</strong>.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="chip">Опыт <b class="font-semibold text-accent">4+ года</b></span>
+          <span class="chip">г. Алматы</span>
+          <span class="chip">Работа на ROI</span>
+        </div>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a data-wa href="https://wa.me/77029992938" target="_blank" rel="noopener" class="btn-primary h-14 px-8 text-base">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Обсудить проект
+          </a>
+          <a href="#approach" class="btn-ghost h-14 px-8 text-base">
+            Смотреть подход
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          </a>
+        </div>
+
+        <!-- Ключевые цифры -->
+        <div class="mt-12 grid grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-4">
+          <div>
+            <p class="font-display text-3xl font-bold text-slate-50 sm:text-[2rem]"><span data-count-to="4">4</span><span class="text-accent">+</span></p>
+            <p class="mt-1.5 text-xs leading-snug text-slate-400 sm:text-sm">года практики в таргете</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl font-bold text-slate-50 sm:text-[2rem]">×<span data-count-to="3">3</span></p>
+            <p class="mt-1.5 text-xs leading-snug text-slate-400 sm:text-sm">целевой ROI вложений</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl font-bold text-slate-50 sm:text-[2rem]">5–<span data-count-to="10">10</span></p>
+            <p class="mt-1.5 text-xs leading-snug text-slate-400 sm:text-sm">ТЗ на видеокреативы под запуск</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl font-bold text-slate-50 sm:text-[2rem]"><span data-count-to="80">80</span><span class="text-accent">%</span></p>
+            <p class="mt-1.5 text-xs leading-snug text-slate-400 sm:text-sm">успеха рекламы решает креатив</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Портрет -->
+      <!--
+        Photo: azamat-480/960 in avif/webp/jpg (4:5) next to this file.
+        Initials fallback shows only if the image fails to load.
+      -->
+      <div class="reveal">
+        <figure class="relative aspect-[4/5] max-w-md overflow-hidden rounded-3xl border border-white/10 bg-panel ring-1 ring-white/5 mx-auto lg:max-w-none">
+          <div class="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_50%_30%,rgba(16,185,129,.14),transparent_60%)]" aria-hidden="true">
+            <span class="bg-grid absolute inset-0 opacity-40"></span>
+            <span class="relative font-display text-8xl font-bold text-white/10">АЖ</span>
+          </div>
+          <picture>
+            <source type="image/avif" srcset="azamat-480.avif 480w, azamat-960.avif 960w" sizes="(min-width:1024px) 440px, (min-width:640px) 60vw, calc(100vw - 32px)">
+            <source type="image/webp" srcset="azamat-480.webp 480w, azamat-960.webp 960w" sizes="(min-width:1024px) 440px, (min-width:640px) 60vw, calc(100vw - 32px)">
+            <!-- Портрет в первом экране: eager + fetchpriority (LCP). Остальные изображения — loading="lazy" -->
+            <img src="azamat-960.jpg" alt="Азамат Жеңісұлы — таргетолог, г. Алматы" width="960" height="1200"
+                 fetchpriority="high" decoding="async" class="absolute inset-0 h-full w-full object-cover object-top" onerror="this.remove()">
+          </picture>
+          <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-ink/85 to-transparent" aria-hidden="true"></div>
+          <div class="chip chip-dark absolute left-4 top-4">
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full motion-safe:animate-ping rounded-full bg-accent opacity-60"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+            </span>
+            На связи · Алматы
+          </div>
+          <figcaption class="absolute inset-x-4 bottom-4 flex flex-wrap gap-2">
+            <span class="chip chip-dark">Целевой ROI <b class="font-semibold text-accent">×3</b></span>
+            <span class="chip chip-dark">Ads Manager · A/B-тесты</span>
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ БЕГУЩАЯ СТРОКА ═══════════ -->
+<div class="marquee relative overflow-hidden border-y border-white/10 bg-panel/50 py-4">
+  <button type="button" id="marqueeToggle" aria-pressed="false" aria-label="Остановить бегущую строку"
+          class="absolute right-2 top-1/2 z-10 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-xl border border-white/10 bg-ink/90 text-slate-300 transition-colors hover:text-accent">
+    <svg data-icon="pause" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+    <svg data-icon="play" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5v14l12-7z"/></svg>
+  </button>
+  <div class="flex w-max" aria-hidden="true">
+    <ul class="marquee-track flex shrink-0 items-center gap-10 pr-10">
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Instagram</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Facebook</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">TikTok</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Ads Manager</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">A/B-тесты</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Глубокая аналитика</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Креативная стратегия</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Масштабирование</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Отчётность</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">ROI ×3</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+    </ul>
+    <ul class="marquee-track flex shrink-0 items-center gap-10 pr-10">
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Instagram</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Facebook</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">TikTok</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Ads Manager</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">A/B-тесты</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Глубокая аналитика</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Креативная стратегия</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Масштабирование</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">Отчётность</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+      <li class="flex items-center gap-10"><span class="whitespace-nowrap font-mono text-xs uppercase tracking-[0.25em] text-slate-400 sm:text-xs">ROI ×3</span><span class="h-1.5 w-1.5 rounded-full bg-accent/60"></span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════ ОБО МНЕ ═══════════ -->
+<section id="about" class="scroll-mt-24 py-16 md:py-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+
+      <div class="reveal">
+        <p class="eyebrow">01 · Обо мне</p>
+        <h2 class="mt-4 font-display text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl">
+          Кто я и почему вам стоит работать со мной
+        </h2>
+        <div class="mt-6 space-y-4 leading-relaxed">
+          <p>Меня зовут <strong class="font-semibold text-slate-100">Азамат</strong>, я — <strong class="font-semibold text-slate-100">таргетолог с более чем 4-летним практическим опытом</strong> запуска эффективной рекламы в <strong class="font-semibold text-slate-100">Instagram, Facebook и TikTok</strong>.</p>
+          <p>Мой подход основан на <strong class="font-semibold text-slate-100">глубокой аналитике, креативной стратегии и строгой работе на окупаемость</strong>. Я не просто настраиваю рекламу — я <strong class="font-semibold text-slate-100">системно подхожу к росту продаж</strong> через таргет.</p>
+          <p>Мои клиенты — <strong class="font-semibold text-slate-100">товарный бизнес, бизнес в сфере услуг, эксперты и онлайн-школы</strong>, которые выросли благодаря рекламе, приносящей реальную прибыль.</p>
+        </div>
+      </div>
+
+      <div class="space-y-4 reveal">
+        <div class="bento">
+          <h3 class="font-display text-lg font-semibold text-slate-100">Принципы работы</h3>
+          <ul class="mt-4 space-y-3.5 text-sm text-slate-300">
+            <li class="flex gap-3">
+              <svg class="mt-0.5 h-5 w-5 flex-none text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong class="font-semibold text-slate-100">Глубокая аналитика</strong> — решения на данных, а не на догадках</span>
+            </li>
+            <li class="flex gap-3">
+              <svg class="mt-0.5 h-5 w-5 flex-none text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong class="font-semibold text-slate-100">Креативная стратегия</strong> — офферы и смыслы, которые цепляют</span>
+            </li>
+            <li class="flex gap-3">
+              <svg class="mt-0.5 h-5 w-5 flex-none text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong class="font-semibold text-slate-100">Работа на окупаемость</strong> — главный показатель: ваша прибыль</span>
+            </li>
+            <li class="flex gap-3">
+              <svg class="mt-0.5 h-5 w-5 flex-none text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong class="font-semibold text-slate-100">Системный подход</strong> — от гипотез до масштабирования</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento">
+          <h3 class="font-display text-lg font-semibold text-slate-100">С кем работаю</h3>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="chip">Товарный бизнес</span>
+            <span class="chip">Сфера услуг</span>
+            <span class="chip">Эксперты</span>
+            <span class="chip">Онлайн-школы</span>
+          </div>
+        </div>
+
+        <div class="flex gap-3.5 rounded-2xl border border-accent/25 bg-accent/5 p-5">
+          <svg class="h-6 w-6 flex-none text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          <p class="text-sm leading-relaxed text-slate-300">При необходимости предоставлю <strong class="font-semibold text-slate-100">прямые отзывы и контакты действующих клиентов</strong> — по запросу.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ПОДХОД: BENTO-СЕТКА, 7 ШАГОВ ═══════════ -->
+<section id="approach" class="scroll-mt-24 py-16 md:py-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="reveal">
+      <p class="eyebrow">02 · Подход к работе</p>
+      <h2 class="mt-4 font-display text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl">
+        Система из 7 шагов — от анализа до масштабирования
+      </h2>
+      <p class="mt-4 max-w-2xl leading-relaxed text-slate-300">
+        Прозрачный процесс: вы всегда понимаете, что происходит с рекламой, бюджетом и результатом на каждом этапе.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+
+      <!-- 01 · Анализ ЦА -->
+      <article class="bento reveal md:col-span-2 lg:col-span-1">
+        <span class="ghost-num" aria-hidden="true">01</span>
+        <div class="icon-chip">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="mt-4 font-display text-lg font-semibold text-slate-100">Анализ целевой аудитории</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">Выявляю страхи, боли, желания и потребности, определяю мотивацию покупки и формирую сегменты ЦА — чтобы бить точно в цель.</p>
+      </article>
+
+      <!-- 02 · ТЗ для видео (ключевая карточка) -->
+      <article class="bento reveal md:col-span-2 lg:row-span-2 lg:p-8">
+        <span class="ghost-num" aria-hidden="true">02</span>
+        <div class="icon-chip">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="mt-4 flex flex-wrap items-center gap-3">
+          <h3 class="font-display text-xl font-semibold text-slate-100 sm:text-2xl">ТЗ для видеокреативов</h3>
+          <span class="chip chip-accent">5–10 брифов под запуск</span>
+        </div>
+        <p class="mt-3 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+          Каждое ТЗ включает копирайтинг — текст, который нужно произнести в кадре, и раскадровку для мобилографа: так даже начинающий снимет продающий креатив.
+        </p>
+        <div class="mt-6 rounded-2xl border border-accent/20 bg-accent/5 p-4 sm:p-6">
+          <div class="flex flex-wrap items-end gap-x-4 gap-y-2">
+            <span class="font-display text-6xl font-bold leading-none text-accent sm:text-7xl">80<span class="text-4xl sm:text-5xl">%</span></span>
+            <p class="max-w-xs pb-1 text-sm leading-snug text-slate-300">успеха таргета зависит от креатива, а не от настроек кампании</p>
+          </div>
+          <div class="mt-5 h-2 overflow-hidden rounded-full bg-white/10">
+            <div class="h-full rounded-full bg-accent" data-fill style="width:80%"></div>
+          </div>
+        </div>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="chip">Текст / копирайтинг</span>
+          <span class="chip">Раскадровка</span>
+          <span class="chip chip-accent">Самый важный этап работы</span>
+        </div>
+      </article>
+
+      <!-- 03 · Запуск и тесты -->
+      <article class="bento reveal">
+        <span class="ghost-num" aria-hidden="true">03</span>
+        <div class="icon-chip">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+        </div>
+        <h3 class="mt-4 font-display text-lg font-semibold text-slate-100">Запуск и A/B-тесты</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">Технически правильно настраиваю и запускаю рекламу в Ads Manager, провожу A/B-тесты, собираю статистику и выявляю самые рабочие связки.</p>
+      </article>
+
+      <!-- 04 · Масштабирование -->
+      <article class="bento reveal">
+        <span class="ghost-num" aria-hidden="true">04</span>
+        <div class="icon-chip">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3 class="mt-4 font-display text-lg font-semibold text-slate-100">Оптимизация и масштабирование</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">Усиливаю эффективные связки, грамотно увеличиваю бюджет, не сливая деньги, отключаю слабые связки и перераспределяю ресурсы.</p>
+      </article>
+
+      <!-- 05 · Отчётность -->
+      <article class="bento reveal">
+        <span class="ghost-num" aria-hidden="true">05</span>
+        <div class="icon-chip">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3 class="mt-4 font-display text-lg font-semibold text-slate-100">Регулярная отчётность</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">Предоставляю отчёты о результатах, объясняю, что работает и почему, корректирую стратегию на основе данных.</p>
+      </article>
+
+      <!-- 06 · Всегда на связи -->
+      <article class="bento reveal md:col-span-1 lg:col-span-2">
+        <span class="ghost-num" aria-hidden="true">06</span>
+        <div class="icon-chip">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3 class="mt-4 font-display text-lg font-semibold text-slate-100">Всегда на связи</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">Быстро отвечаю, оперативно вношу правки и работаю как часть вашей команды.</p>
+        <a data-wa href="https://wa.me/77029992938" target="_blank" rel="noopener" class="mt-4 inline-flex min-h-[48px] items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-accent-strong">
+          Написать в WhatsApp
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <!-- 07 · Обновление креативов -->
+      <article class="bento reveal md:col-span-2 lg:col-span-2">
+        <span class="ghost-num" aria-hidden="true">07</span>
+        <div class="icon-chip">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </div>
+        <h3 class="mt-4 font-display text-lg font-semibold text-slate-100">Постоянное обновление креативов</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">У каждого креатива есть срок жизни. Поэтому я заранее подготавливаю новые ТЗ: не было простоев, не терялась эффективность, а реклама не «выгорала».</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ЦЕЛЬ — ВАША ПРИБЫЛЬ (интерактив) ═══════════ -->
+<section id="roi" class="scroll-mt-24 py-16 md:py-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="relative overflow-hidden rounded-3xl border border-white/10 bg-panel p-6 reveal sm:p-10 lg:p-12">
+      <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/10 blur-[100px]" aria-hidden="true"></div>
+
+      <div class="relative grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+
+        <!-- Формула $1 → $3+ -->
+        <div>
+          <p class="eyebrow">03 · Цель моей работы</p>
+          <h2 class="mt-4 font-display text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl">Цель — ваша прибыль</h2>
+          <p class="mt-5 leading-relaxed text-slate-300">
+            Я работаю на <strong class="font-semibold text-slate-100">окупаемость и рост</strong>. Цель — чтобы на каждый вложенный <strong class="font-semibold text-slate-100">1 тенге</strong> (включая мои услуги и рекламный бюджет) вы зарабатывали <strong class="font-semibold text-slate-100">минимум 3 тенге и выше</strong>.
+          </p>
+
+          <div class="mt-9 flex items-center gap-3 sm:gap-5">
+            <div class="grid h-20 w-20 flex-none place-items-center rounded-2xl border border-white/10 bg-ink/80 font-display text-2xl font-bold text-slate-200 sm:h-24 sm:w-24 sm:text-3xl">1 ₸</div>
+            <svg class="h-6 w-10 flex-none text-accent sm:w-14" viewBox="0 0 64 24" fill="none" aria-hidden="true">
+              <path class="dashline" d="M2 12h50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M46 4l10 8-10 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="grid h-24 w-24 flex-none place-items-center rounded-2xl border border-accent/40 bg-accent/10 font-display text-3xl font-bold text-accent shadow-[0_0_44px_-10px_rgba(16,185,129,.55)] sm:h-28 sm:w-28 sm:text-4xl">3 ₸+</div>
+          </div>
+          <p class="mt-3 text-xs text-slate-400 sm:text-sm">Вложения (рекламный бюджет + мои услуги) → целевой возврат</p>
+        </div>
+
+        <!-- Интерактивный расчёт -->
+        <div class="rounded-2xl border border-white/10 bg-ink/60 p-5 sm:p-7">
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="font-display text-lg font-semibold text-slate-100">Живой расчёт цели</h3>
+            <span class="chip chip-accent !min-h-0 py-1.5 font-mono text-xs uppercase tracking-widest">ROI ×3</span>
+          </div>
+
+          <label for="roiRange" class="mt-5 block text-sm text-slate-300">Вложения: рекламный бюджет + услуги</label>
+          <p class="mt-1 font-display text-3xl font-bold text-slate-50 sm:text-4xl"><span id="roiInv">1 000 000</span> ₸</p>
+
+          <input id="roiRange" type="range" min="250000" max="5000000" step="50000" value="1000000"
+                 aria-valuetext="1 000 000 тенге" aria-describedby="roiNote" class="roi-range mt-2">
+
+          <div class="flex justify-between font-mono text-xs text-slate-400"><span>250 000 ₸</span><span>5 000 000 ₸</span></div>
+
+          <div class="mt-6 grid gap-3 sm:grid-cols-2">
+            <div class="rounded-xl border border-accent/25 bg-accent/5 p-4">
+              <p class="font-mono text-xs uppercase tracking-widest text-accent">Целевой возврат</p>
+              <p class="mt-1 font-display text-2xl font-bold text-slate-50"><span id="roiRet">3 000 000</span> ₸<span class="text-accent">+</span></p>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-panel p-4">
+              <p class="font-mono text-xs uppercase tracking-widest text-slate-400">Чистая прибыль</p>
+              <p class="mt-1 font-display text-2xl font-bold text-slate-50">+<span id="roiNet">2 000 000</span> ₸</p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <div class="mb-2 flex items-center justify-between font-mono text-xs uppercase tracking-widest text-slate-400">
+              <span>Вложения · 1</span><span class="text-accent">Возврат · 3</span>
+            </div>
+            <div class="flex h-2.5 overflow-hidden rounded-full bg-white/5" role="img" aria-label="Соотношение вложений и возврата: один к трём">
+              <div class="h-full bg-slate-500" data-fill style="width:25%"></div>
+              <div class="h-full bg-accent" data-fill style="width:75%"></div>
+            </div>
+          </div>
+
+          <p id="roiNote" class="mt-5 text-xs leading-relaxed text-slate-400">* Цель по окупаемости при системной работе над проектом. Фактический результат зависит от ниши, продукта, цены и бюджета.</p>
+
+          <a data-wa href="https://wa.me/77029992938" target="_blank" rel="noopener" class="btn-primary mt-6 w-full">Обсудить расчёт для моего проекта</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ФИНАЛЬНЫЙ CTA / КОНТАКТЫ ═══════════ -->
+<section id="contact" class="scroll-mt-24 pb-24 pt-4 md:pb-28">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="relative overflow-hidden rounded-3xl border border-accent/25 bg-gradient-to-b from-accent/10 via-panel to-panel p-6 text-center reveal sm:p-10 lg:p-14">
+      <div class="pointer-events-none absolute left-1/2 top-0 h-64 w-[420px] -translate-x-1/2 rounded-full bg-accent/15 blur-[110px]" aria-hidden="true"></div>
+
+      <div class="relative">
+        <p class="eyebrow justify-center">04 · Следующий шаг</p>
+        <h2 class="mx-auto mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl">
+          Готов обсудить детали и ответить на любые вопросы
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl leading-relaxed text-slate-300">
+          Напишите в WhatsApp — за пару сообщений пойму вашу задачу и предложу план запуска.
+          <strong class="font-semibold text-slate-100">Готов подключиться к проекту уже на этой неделе.</strong>
+        </p>
+
+        <div class="mt-5 flex flex-wrap justify-center gap-2">
+          <span class="chip">
+            <svg class="h-4 w-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Проживаю в г. Алматы
+          </span>
+          <span class="chip">
+            <svg class="h-4 w-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Старт уже на этой неделе
+          </span>
+        </div>
+
+        <div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <a data-wa href="https://wa.me/77029992938" target="_blank" rel="noopener" class="btn-primary h-14 px-8 text-base">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Написать в WhatsApp
+          </a>
+          <a href="tel:+77029992938" class="btn-ghost h-14 px-8 text-base">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +7 702 999 29 38
+          </a>
+          <button id="copyPhone" type="button" aria-label="Скопировать номер телефона" class="btn-ghost h-14 px-5">
+            <svg class="h-5 w-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span data-label aria-live="polite">Копировать</span>
+          </button>
+        </div>
+
+        <!-- Подпись -->
+        <div class="mx-auto mt-10 flex max-w-sm items-center gap-4 border-t border-white/10 pt-8 text-left">
+          <div class="relative h-14 w-14 flex-none overflow-hidden rounded-full border border-accent/30 bg-panel">
+            <span class="absolute inset-0 grid place-items-center font-display text-sm font-bold text-accent" aria-hidden="true">АЖ</span>
+            <picture>
+              <source type="image/avif" srcset="azamat-480.avif 480w" sizes="56px">
+              <source type="image/webp" srcset="azamat-480.webp 480w" sizes="56px">
+              <img src="azamat-480.jpg" alt="" aria-hidden="true" width="480" height="600" loading="lazy" decoding="async"
+                   class="absolute inset-0 h-full w-full object-cover object-top" onerror="this.remove()">
+            </picture>
+          </div>
+          <p class="text-sm leading-snug text-slate-400">
+            С уважением,<br>
+            <strong class="font-display text-base font-semibold text-slate-100">Азамат Жеңісұлы</strong><br>
+            таргетолог · 4+ года опыта
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ ФУТЕР ═══════════ -->
+<footer class="border-t border-white/10 bg-panel/40">
+  <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 md:py-12">
+    <div class="grid gap-8 md:grid-cols-3">
+
+      <div>
+        <a href="#top" class="inline-flex min-h-[48px] items-center gap-3">
+          <span class="grid h-10 w-10 place-items-center rounded-xl border border-accent/30 bg-accent/15 font-display text-sm font-bold text-accent">АЖ</span>
+          <span class="font-display font-semibold text-slate-100">Азамат Жеңісұлы</span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
+          Таргетированная реклама в Instagram, Facebook и TikTok. Аналитика, креативы, работа на окупаемость.
+        </p>
+      </div>
+
+      <nav aria-label="Разделы страницы">
+        <h3 class="font-mono text-xs uppercase tracking-[0.22em] text-slate-400">Разделы</h3>
+        <ul class="mt-2">
+          <li><a href="#about"    class="flex min-h-[48px] items-center text-sm text-slate-300 transition-colors hover:text-accent">Обо мне</a></li>
+          <li><a href="#approach" class="flex min-h-[48px] items-center text-sm text-slate-300 transition-colors hover:text-accent">Подход к работе</a></li>
+          <li><a href="#roi"      class="flex min-h-[48px] items-center text-sm text-slate-300 transition-colors hover:text-accent">Цель — прибыль</a></li>
+          <li><a href="#contact"  class="flex min-h-[48px] items-center text-sm text-slate-300 transition-colors hover:text-accent">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="font-mono text-xs uppercase tracking-[0.22em] text-slate-400">Контакты</h3>
+        <a data-wa href="https://wa.me/77029992938" target="_blank" rel="noopener" class="mt-2 flex min-h-[48px] items-center gap-3 text-sm text-slate-300 transition-colors hover:text-accent">
+          <svg class="h-5 w-5 flex-none text-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp: <b class="font-semibold text-slate-100">+7 702 999 29 38</b>
+        </a>
+        <a href="tel:+77029992938" class="flex min-h-[48px] items-center gap-3 text-sm text-slate-300 transition-colors hover:text-accent">
+          <svg class="h-5 w-5 flex-none text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Позвонить напрямую
+        </a>
+        <p class="flex min-h-[48px] items-center gap-3 text-sm text-slate-300">
+          <svg class="h-5 w-5 flex-none text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          г. Алматы, Казахстан
+        </p>
+        <div class="mt-3 flex items-center gap-2.5">
+          <a data-wa href="https://wa.me/77029992938" target="_blank" rel="noopener" aria-label="WhatsApp" class="soc">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-10 flex flex-col justify-between gap-2 border-t border-white/10 pt-6 text-xs text-slate-400 sm:flex-row">
+      <p>© <span id="year">2026</span> Азамат Жеңісұлы. Все права защищены.</p>
+      <p>г. Алматы · Instagram · Facebook · TikTok</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ МОБИЛЬНАЯ ПЛАШКА (быстрая связь) ═══════════ -->
+<div id="mobileBar" class="fixed inset-x-0 bottom-0 z-50 md:hidden" style="padding-bottom:env(safe-area-inset-bottom)">
+  <div class="flex items-center gap-2.5 border-t border-white/10 bg-[#10131A]/95 px-3 py-2.5 backdrop-blur-lg">
+    <a href="tel:+77029992938" aria-label="Позвонить: +7 702 999 29 38"
+       class="grid h-12 w-12 flex-none place-items-center rounded-xl border border-white/15 text-slate-200 transition-colors active:bg-white/10">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    <a data-wa href="https://wa.me/77029992938" target="_blank" rel="noopener" class="btn-primary h-12 flex-1 px-4 text-[15px]">
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Обсудить проект
+    </a>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  document.documentElement.classList.remove('no-js');
+
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fmt = new Intl.NumberFormat('ru-RU');
+
+  /* 1. Текущий год */
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* 2. WhatsApp-ссылки: предзаполненное сообщение */
+  var waMsg = encodeURIComponent('Здравствуйте, Азамат! Хочу обсудить проект по таргетированной рекламе.');
+  document.querySelectorAll('a[data-wa]').forEach(function (a) {
+    a.href = 'https://wa.me/77029992938?text=' + waMsg;
+  });
+
+  /* 3. Шапка при скролле */
+  var header = document.getElementById('siteHeader');
+  if (header) {
+    var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 8); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* 4. Счётчики цифр */
+  function animateCount(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    var target = parseInt(el.dataset.countTo, 10) || 0;
+    if (reduced) { el.textContent = target; return; }
+    var start = null;
+    var step = function (ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / 900, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  /* 5. Появление блоков + заливка шкал */
+  function fillBars(root) {
+    root.querySelectorAll('[data-fill]').forEach(function (b) { b.classList.add('is-filled'); });
+  }
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); fillBars(el); });
+  } else {
+    var groups = new Map();
+    revealEls.forEach(function (el) {
+      var i = groups.get(el.parentElement) || 0;
+      el.style.transitionDelay = Math.min(i * 80, 400) + 'ms';
+      groups.set(el.parentElement, i + 1);
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        el.classList.add('is-visible');
+        fillBars(el);
+        el.querySelectorAll('[data-count-to]').forEach(animateCount);
+        setTimeout(function () { el.style.transitionDelay = ''; }, 900);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -48px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  }
+
+  /* 6. Интерактивный расчёт $1 → $3+ */
+  var range = document.getElementById('roiRange');
+  if (range) {
+    var invEl = document.getElementById('roiInv'),
+        retEl = document.getElementById('roiRet'),
+        netEl = document.getElementById('roiNet');
+
+    function tween(el, to) {
+      if (reduced) { el.textContent = fmt.format(to); return; }
+      var from = parseInt(el.textContent.replace(/\D/g, ''), 10) || 0;
+      var start = null;
+      var step = function (ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / 260, 1);
+        el.textContent = fmt.format(Math.round(from + (to - from) * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    function render() {
+      var v = parseInt(range.value, 10);
+      range.style.setProperty('--fill', (((v - +range.min) / (+range.max - +range.min)) * 100) + '%');
+      range.setAttribute('aria-valuetext', fmt.format(v) + ' тенге');
+      tween(invEl, v); tween(retEl, v * 3); tween(netEl, v * 2);
+    }
+    range.addEventListener('input', render);
+    render();
+  }
+
+  /* 6b. Пауза бегущей строки (WCAG 2.2.2) */
+  var mq = document.querySelector('.marquee'), mqBtn = document.getElementById('marqueeToggle');
+  if (mq && mqBtn) {
+    mqBtn.addEventListener('click', function () {
+      var paused = mq.classList.toggle('is-paused');
+      mqBtn.setAttribute('aria-pressed', paused);
+      mqBtn.setAttribute('aria-label', paused ? 'Запустить бегущую строку' : 'Остановить бегущую строку');
+      mqBtn.querySelector('[data-icon="pause"]').classList.toggle('hidden', paused);
+      mqBtn.querySelector('[data-icon="play"]').classList.toggle('hidden', !paused);
+    });
+  }
+
+  /* 7. Копирование номера */
+  var copyBtn = document.getElementById('copyPhone');
+  if (copyBtn) {
+    var label = copyBtn.querySelector('[data-label]');
+    var defaultLabel = label ? label.textContent : '';
+    function fallbackCopy(text) {
+      var ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    copyBtn.addEventListener('click', function () {
+      var phone = '+7 702 999 29 38';
+      var done = function () {
+        if (!label) return;
+        label.textContent = 'Скопировано';
+        setTimeout(function () { label.textContent = defaultLabel; }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(phone).then(done).catch(function () { fallbackCopy(phone); done(); });
+      } else { fallbackCopy(phone); done(); }
+    });
+  }
+
+  /* 8. Плашка скрывается на финальном CTA (чтобы не дублировать кнопку) */
+  var bar = document.getElementById('mobileBar');
+  var contact = document.getElementById('contact');
+  if (bar && contact && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      bar.classList.toggle('is-hidden', entries[0].isIntersecting);
+    }, { threshold: 0.08 }).observe(contact);
+  }
+})();
+</script>
+</body>
+</html>

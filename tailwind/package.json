@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "npm run build:v1 && npm run build:v2 && npm run build:v3",
+    "build:v1": "tailwindcss -c v1.config.js -i input.css -o ../v1.css --minify",
+    "build:v2": "tailwindcss -c v2.config.js -i input.css -o ../v2.css --minify",
+    "build:v3": "tailwindcss -c v3.config.js -i input.css -o ../v3.css --minify"
+  },
+  "devDependencies": { "tailwindcss": "^3.4.19" }
+}
