@@ -5,7 +5,7 @@
 # Азамат Жеңісұлы · таргетолог
 
 **Сайт-визитка и коммерческое предложение для таргетолога из Алматы.**
-Три варианта дизайна — одна страница для выбора.
+Три сайта на одной странице с вкладками: визитка таргетолога, свадьба и день рождения.
 
 [![Live](https://img.shields.io/badge/демо-azamat--targetolog.pages.dev-10B981?style=for-the-badge&logo=cloudflarepages&logoColor=white)](https://azamat-targetolog.pages.dev/)
 
@@ -24,10 +24,10 @@
 | | Вариант | Характер | Ссылка |
 |:-:|---|---|---|
 | <img src="docs/preview-v1.jpg" width="260"> | **1 · Тёмный** | Tech-стиль: графитовый фон, изумрудный акцент, бронзовый портрет, живой калькулятор окупаемости | [v1.html](https://azamat-targetolog.pages.dev/v1) |
-| <img src="docs/preview-v2.jpg" width="260"> | **2 · Яркий** | Необрутализм: жирные рамки, плашки Instagram / Facebook / TikTok, жёсткие тени | [v2.html](https://azamat-targetolog.pages.dev/v2) |
-| <img src="docs/preview-v3.jpg" width="260"> | **3 · Классика** | Светлый деловой стиль, янтарный акцент, спокойная подача | [v3.html](https://azamat-targetolog.pages.dev/v3) |
+| <img src="docs/preview-v2.jpg" width="260"> | **2 · Свадьба** | Приглашение «Айгерим & Тимур»: гранат, шафран и бирюза, казахский орнамент, программа дня, вишлист с бронью, анкета гостя | [v2.html](https://azamat-targetolog.pages.dev/v2) |
+| <img src="docs/preview-v3.jpg" width="260"> | **3 · День рождения** | «Мирону 7»: космическая вечеринка, обратный отсчёт, список гостей, подарки, посадочный талон-RSVP | [v3.html](https://azamat-targetolog.pages.dev/v3) |
 
-[`index.html`](index.html) — переключатель вариантов с вкладками. У каждого варианта своя ссылка через хэш: `/#v1`, `/#v2`, `/#v3`.
+[`index.html`](index.html) — переключатель сайтов с вкладками. У каждого варианта своя ссылка через хэш: `/#v1`, `/#v2`, `/#v3`.
 
 ## Что внутри
 
@@ -42,11 +42,11 @@
 
 ```
 .
-├── index.html            # switcher between the three variants
+├── index.html            # tab switcher between the three sites
 ├── v1.html / v1.css      # dark variant
-├── v2.html / v2.css      # bright (neo-brutalism) variant
-├── v3.html / v3.css      # classic variant
-├── azamat-*.{avif,webp,jpg}       # portrait, white backdrop (v2, v3)
+├── v2.html               # wedding invitation (self-contained, inline CSS/JS)
+├── v3.html               # kids birthday invitation (self-contained, inline CSS/JS)
+├── azamat-*.{avif,webp,jpg}       # portrait, white backdrop (unused since v2/v3 were replaced)
 ├── azamat-dark-*.{avif,webp,jpg}  # mirrored portrait, bronze backdrop (v1)
 ├── og-card.jpg           # link preview image (baseline JPEG)
 ├── docs/                 # README screenshots
@@ -56,13 +56,12 @@
 
 ## Сборка CSS
 
-HTML можно править напрямую. Если меняются классы Tailwind — пересоберите CSS:
+HTML можно править напрямую. Tailwind используется только в варианте 1 (`v2.html` и `v3.html` самодостаточны). Если меняются классы — пересоберите CSS:
 
 ```bash
 cd tailwind
 npm install
-npm run build        # all three variants
-npm run build:v1     # a single variant
+npm run build:v1
 ```
 
 ## Деплой
