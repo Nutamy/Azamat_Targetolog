@@ -531,7 +531,22 @@ let toastT;
 function toast(msg){ const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => t.hidden = true, 3400); }
 
 // ---- Shared state (filled from db when available) ----
-const S = { db:null, uid:null, rsvps:{}, gifts:{}, notes:{}, isOwner:false, online:false };
+const S = { uid:"me", rsvps:{}, gifts:{}, notes:{}, isOwner:false, online:false };
+// Shared storage: same-origin Cloudflare Pages Function + D1 (see functions/api/[[path]].js).
+// GID is a random per-browser secret that identifies the guest's own RSVP and gift picks.
+const SITE = "m7";
+const GID = (() => { try { let g = localStorage.getItem("invite-gid"); if (!g){ g = crypto.randomUUID(); localStorage.setItem("invite-gid", g); } return g; } catch { return crypto.randomUUID(); } })();
+// Parents open the page once with ?key=SECRET; the key lives for the tab session only.
+const OWNER_KEY = (() => { try { const k = new URLSearchParams(location.search).get("key"); if (k) sessionStorage.setItem("invite-owner-key", k); return sessionStorage.getItem("invite-owner-key") || ""; } catch { return ""; } })();
+async function api(path, body, headers){
+  const r = await fetch("/api/" + SITE + "/" + path, { method: body ? "POST" : "GET", cache:"no-store",
+    headers: Object.assign({ "X-Guest-Id": GID }, body ? { "Content-Type":"application/json" } : {}, headers), body: body ? JSON.stringify(body) : undefined });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok){ const e = new Error(j.error || r.status); e.status = r.status; e.code = j.error; throw e; }
+  return j;
+}
+// No status or 404/5xx means the API is unreachable (static preview, offline): fall back to the chat flow
+const apiDown = e => !e.status || e.status === 404 || e.status >= 500;
 
 // ---- Greeting, calm mode ----
 $("#greet").textContent = GREETINGS[Math.floor(Math.random() * GREETINGS.length)];
@@ -617,18 +632,21 @@ function renderGifts(){
 }
 $("#giftList").addEventListener("click", async e => {
   const b = e.target.closest("button[data-gift]"); if (!b) return;
-  if (!S.db || !S.uid){ toast("Бронь подарков пока недоступна. Напишите родителям Мирона в чат, что выбрали."); return; }
-  const id = b.dataset.gift, ref = S.db.doc("gifts/" + id);
+  const id = b.dataset.gift, free = b.dataset.act === "free";
+  const name = guestName() || S.me?.guest || "";
+  if (!free && !name){ toast("Сначала выберите своё имя в анкете ниже."); sel.focus(); sel.scrollIntoView({block:"center", behavior: motionOK() ? "smooth" : "auto"}); return; }
   b.disabled = true;
   try {
-    if (b.dataset.act === "free"){ await ref.delete(); toast("Подарок снова свободен."); return; }
-    const name = guestName() || (S.rsvps[S.uid]?.guest);
-    if (!name){ toast("Сначала выберите своё имя в анкете ниже."); sel.focus(); sel.scrollIntoView({block:"center", behavior: motionOK() ? "smooth" : "auto"}); b.disabled = false; return; }
-    const snap = await ref.get();
-    if (snap.exists && snap.data()?.by !== S.uid){ toast("Кто‑то успел раньше. Выберите другой подарок."); return; }
-    await ref.set({ by:S.uid, name, ts:Date.now() });
-    toast("Готово! Подарок отмечен за вами."); burst(b);
-  } catch { toast("Не получилось сохранить. Попробуйте ещё раз."); b.disabled = false; }
+    await api("gift", { id, action: free ? "free" : "take", name });
+    if (free) toast("Подарок снова свободен.");
+    else { toast("Готово! Подарок отмечен за вами."); burst(b); }
+  } catch (err) {
+    toast(err.code === "taken" ? "Кто‑то успел раньше. Выберите другой подарок."
+      : err.code === "limit" ? "Можно отметить не больше пяти подарков."
+      : apiDown(err) ? "Бронь подарков пока недоступна. Напишите родителям Мирона в чат, что выбрали."
+      : "Не получилось сохранить. Попробуйте ещё раз.");
+  }
+  await sync();
 });
 
 // ---- Wishes ----
@@ -676,11 +694,13 @@ $("#form").addEventListener("submit", async e => {
   const btn = $("#submitBtn"); btn.disabled = true; $("#saveState").textContent = "Отправляем…";
   store.set("miron7-rsvp", { rec, note });
   try {
-    if (S.db && S.uid){
-      await S.db.doc("rsvp/" + S.uid).set(rec);
-      await S.db.doc("notes/" + S.uid).set({ guest, status, kids:rec.kids, adults:rec.adults, note, ts:rec.ts });
+    try {
+      await api("rsvp", { guest, status, kids:rec.kids, adults:rec.adults, wish:rec.wish, note });
+      S.online = true;
       $("#saveState").textContent = "Ответ сохранён. Его видят родители Мирона.";
-    } else {
+      sync();
+    } catch (err) {
+      if (!apiDown(err)) throw err;
       S.rsvps.local = rec; renderAll();
       $("#saveState").textContent = "Ответ сохранён только на этом устройстве. Продублируйте его в чате родителей.";
     }
@@ -757,25 +777,27 @@ const saved = store.get("miron7-rsvp");
 if (saved?.rec){ fillForm(saved.rec, saved.note); }
 renderAll();
 
-// ---- Connect shared data ----
-(async () => {
-  if (!window.claude?.use) return;
-  const [db, user] = await Promise.all([claude.use("db"), claude.use("user")]);
-  if (!db || !user) return;
-  const uid = await user.id();
-  if (!uid) return;
-  S.db = db; S.uid = uid; S.online = true;
-  S.isOwner = await user.isOwner().catch(() => false);
-  const toMap = snap => Object.fromEntries(snap.docs.map(d => [d.id, d.data()]));
-  db.collection("rsvp").onSnapshot(snap => {
-    S.rsvps = toMap(snap);
-    if (S.rsvps[uid] && !$("#form").dataset.filled){ $("#form").dataset.filled = "1"; fillForm(S.rsvps[uid], store.get("miron7-rsvp")?.note); }
+// ---- Shared data ----
+async function sync(){
+  try {
+    const j = await api("state");
+    S.online = true;
+    S.rsvps = Object.fromEntries(j.rsvps.map((r, i) => [i, r]));
+    S.gifts = Object.fromEntries(Object.entries(j.gifts).map(([id, g]) => [id, { by: g.mine ? S.uid : "other", name: g.name }]));
+    S.me = j.mine;
+    if (j.mine && !$("#form").dataset.filled){ $("#form").dataset.filled = "1"; fillForm(j.mine, j.mine.note); }
+    if (OWNER_KEY){
+      try {
+        S.notes = Object.fromEntries((await api("owner", null, { "X-Owner-Key": OWNER_KEY })).rows.map((r, i) => [i, r]));
+        S.isOwner = true;
+      } catch {}
+    }
     renderAll();
-  }, () => {});
-  db.collection("gifts").onSnapshot(snap => { S.gifts = toMap(snap); renderGifts(); }, () => {});
-  if (S.isOwner) db.collection("notes").onSnapshot(snap => { S.notes = toMap(snap); renderOwner(); }, () => {});
-  renderAll();
-})();
+  } catch { S.online = false; renderAll(); }
+}
+sync();
+setInterval(() => { if (!document.hidden) sync(); }, 20000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) sync(); });
 </script>
 
 </body>
