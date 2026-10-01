@@ -835,9 +835,25 @@ body.still *, body.still *::before, body.still *::after { animation: none !impor
     ["leaf", "Большая монстера в кашпо", "Первое общее растение, которое выживет.", "~ 30 000 ₸", "saffron"],
     ["plane", "Вклад в медовый месяц", "Любая сумма в поездку в Сванетию.", "по желанию", "turq"],
   ];
+  // ---------- shared storage: same-origin API (Cloudflare Pages Functions + D1) ----------
+  const SITE = "wed";
+  // Random id kept in this browser; it identifies the guest's own RSVP and gift picks
+  const GID = (() => { try { let g = localStorage.getItem("invite-gid"); if (!g) { g = crypto.randomUUID(); localStorage.setItem("invite-gid", g); } return g; } catch (e) { return crypto.randomUUID(); } })();
+  // The couple opens the page once with ?key=SECRET; it is kept for the tab session
+  const OWNER_KEY = (() => { try { const k = new URLSearchParams(location.search).get("key"); if (k) sessionStorage.setItem("invite-owner-key", k); return sessionStorage.getItem("invite-owner-key") || ""; } catch (e) { return ""; } })();
+  async function api(path, body, headers) {
+    const r = await fetch("/api/" + SITE + "/" + path, { method: body ? "POST" : "GET", cache: "no-store",
+      headers: Object.assign({ "X-Guest-Id": GID }, body ? { "Content-Type": "application/json" } : {}, headers), body: body ? JSON.stringify(body) : undefined });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { const e = new Error(j.error || r.status); e.status = r.status; e.code = j.error; throw e; }
+    return j;
+  }
+  // No status or 404/5xx means the API is not reachable (static preview, offline): fall back to the copy-paste flow
+  const apiDown = (e) => !e.status || e.status === 404 || e.status >= 500;
+
   const giftEl = $("#giftlist");
   let giftState = {};  // gid -> {by}
-  let uid = null, db = null, canWrite = true;
+  const uid = "me";
   function renderGifts() {
     giftEl.innerHTML = GIFTS.map(([ic, h, p, price, c], i) => {
       const gid = "g" + i;
@@ -862,19 +878,19 @@ body.still *, body.still *::before, body.still *::after { animation: none !impor
     const b = e.target.closest("[data-gift]");
     if (!b) return;
     if (b.dataset.fund) { burstAt(e.clientX, e.clientY, 40); toast("Спасибо! Конверт или перевод — как вам удобнее"); return; }
-    if (!db || !uid || !canWrite) { toast("Бронь подарков пока недоступна. Напишите молодожёнам, что выбрали"); return; }
     const gid = b.dataset.gift;
-    const ref = db.doc("gifts/" + gid);
+    const mine = giftState[gid]?.by === uid;
     b.disabled = true;
     try {
-      const snap = await ref.get();
-      const by = snap.exists ? snap.data().by : null;
-      if (by && by !== uid) { toast("Этот подарок только что выбрал другой гость"); }
-      else if (by === uid) { await ref.delete(); toast("Бронь снята"); }
-      else { await ref.set({ by: uid, at: Date.now() }); burstAt(e.clientX, e.clientY, 50); toast("Записали: этот подарок ваш"); }
+      await api("gift", { id: gid, action: mine ? "free" : "take", name: $("#f-name").value.trim() });
+      if (mine) toast("Бронь снята");
+      else { burstAt(e.clientX, e.clientY, 50); toast("Записали: этот подарок ваш"); }
     } catch (err) {
-      toast(err?.code === "invalid_argument" ? "Нет прав на бронь с этой ссылкой" : "Не получилось сохранить, попробуйте ещё раз");
-    } finally { b.disabled = false; }
+      toast(err.code === "taken" ? "Этот подарок только что выбрал другой гость"
+        : apiDown(err) ? "Бронь подарков пока недоступна. Напишите молодожёнам, что выбрали"
+        : "Не получилось сохранить, попробуйте ещё раз");
+    }
+    await sync();
   });
 
   // ---------- RSVP ----------
@@ -919,25 +935,21 @@ body.still *, body.still *::before, body.still *::after { animation: none !impor
     const d = collect();
     if (!validate(d)) return;
     const send = $("#send");
-    if (!db || !uid || !canWrite) {
-      $("#fb-text").textContent = asText(d);
-      $("#fallback").hidden = false;
-      formStatus.textContent = "";
-      return;
-    }
     send.disabled = true;
     formStatus.className = "status";
     formStatus.textContent = "Отправляем…";
     try {
-      await db.doc("rsvp/" + uid).set({ ...d, ts: Date.now() });
+      await api("rsvp", d);
+      filled = true; // keep the thank-you message instead of the "already answered" one
+      $("#fallback").hidden = true;
       formStatus.className = "status ok";
       formStatus.textContent = d.status === "yes" ? `Ура, ${d.name.split(" ")[0]}! Ждём вас 12 июня.` : "Спасибо, что ответили. Будем скучать!";
       send.textContent = "Обновить ответ";
       if (d.status === "yes") { const r = send.getBoundingClientRect(); burstAt(r.left + r.width / 2, r.top, 140); }
+      await sync();
     } catch (err) {
-      if (err?.code === "invalid_argument") canWrite = false;
       formStatus.className = "status bad";
-      formStatus.textContent = "Не получилось сохранить.";
+      formStatus.textContent = apiDown(err) ? "Сайт сейчас не принимает ответы." : "Не получилось сохранить.";
       $("#fb-text").textContent = asText(d);
       $("#fallback").hidden = false;
     } finally { send.disabled = false; }
@@ -960,18 +972,17 @@ body.still *, body.still *::before, body.still *::after { animation: none !impor
 
   // ---------- wishes, counter, owner summary ----------
   const WISH_TINTS = ["var(--tint-pom)", "var(--tint-saf)", "var(--tint-turq)"];
-  let isOwner = false;
-  function renderRsvps(docs) {
-    const yes = docs.filter((d) => d.status === "yes");
-    const people = yes.reduce((a, d) => a + (d.guests || 1), 0);
+  function renderPublic(people, wishes) {
     $("#yes-count").textContent = people;
     $("#yes-label").textContent = people === 1 ? "гость уже подтвердил" : "гостей уже подтвердили";
-    const wishes = docs.filter((d) => d.wish);
     $("#wall").innerHTML = wishes.length
       ? wishes.map((d, i) => `<figure class="wish" style="--c:${WISH_TINTS[i % 3]};margin-inline:0"><q>${esc(d.wish)}</q><span>— ${esc(d.name || "Гость")}</span></figure>`).join("")
       : `<div class="empty">Здесь появятся пожелания гостей. Оставьте первое в анкете выше.</div>`;
-    if (!isOwner) return;
+  }
+  function renderOwner(docs) {
     $("#summary").hidden = false;
+    const yes = docs.filter((d) => d.status === "yes");
+    const people = yes.reduce((a, d) => a + (d.guests || 1), 0);
     const no = docs.filter((d) => d.status === "no").length;
     const cnt = (k) => yes.filter((d) => d.meal === k).reduce((a, d) => a + (d.guests || 1), 0);
     const bus = yes.filter((d) => d.bus).reduce((a, d) => a + (d.guests || 1), 0);
@@ -986,32 +997,22 @@ body.still *, body.still *::before, body.still *::after { animation: none !impor
   }
 
   // ---------- data layer ----------
-  (async () => {
-    const c = window.claude;
-    if (!c?.use) { $("#yes-count").textContent = "—"; return; }
-    const [dbNs, user] = await Promise.all([c.use("db"), c.use("user")]);
-    if (user) {
-      isOwner = await user.isOwner().catch(() => false);
-      uid = await user.id().catch(() => null);
-      const w = await user.can("data.write").catch(() => null);
-      if (w === false && !isOwner) canWrite = false;
-    }
-    if (!dbNs) return;
-    db = dbNs;
-    if (uid) {
-      db.doc("rsvp/" + uid).get().then((s) => { if (s.exists) fillForm(s.data()); }).catch(() => {});
-    }
-    db.collection("rsvp").orderBy("ts", "desc").limit(500).onSnapshot(
-      (snap) => renderRsvps(snap.docs.map((d) => d.data())),
-      () => {}
-    );
-    db.collection("gifts").onSnapshot((snap) => {
-      giftState = {};
-      snap.docs.forEach((d) => (giftState[d.id] = d.data()));
+  let filled = false;
+  async function sync() {
+    try {
+      const j = await api("state");
+      giftState = Object.fromEntries(Object.entries(j.gifts).map(([id, g]) => [id, { by: g.mine ? uid : "other" }]));
       renderGifts();
-    }, () => {});
-    if (!canWrite) $("#gift-status").textContent = "С этой ссылкой можно только смотреть: бронь подарков и анкета сохраняются у гостей с правом участия.";
-  })();
+      renderPublic(j.people, j.wishes);
+      if (j.mine && !filled) { filled = true; fillForm(j.mine); }
+      if (OWNER_KEY) {
+        try { renderOwner((await api("owner", null, { "X-Owner-Key": OWNER_KEY })).rows); } catch (e) {}
+      }
+    } catch (e) { $("#yes-count").textContent = "—"; }
+  }
+  sync();
+  setInterval(() => { if (!document.hidden) sync(); }, 20000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) sync(); });
 
   // ---------- copy helpers ----------
   async function copyText(t) {

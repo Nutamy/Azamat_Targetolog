@@ -101,10 +101,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 .rocket svg{width:100%;height:auto;display:block;overflow:visible}
 .rocket.launch{animation:launch 2.4s cubic-bezier(.55,0,.35,1) forwards}
 .flame{transform-origin:50% 0;animation:flame .18s ease-in-out infinite alternate}
-.sat{position:absolute;font-family:var(--f-hand);font-size:24px;background:var(--lemon);color:var(--on-accent);border:2px solid var(--line);border-radius:14px;padding:4px 12px;box-shadow:3px 3px 0 var(--shadow);white-space:nowrap}
+/* z-index keeps the labels above the rocket SVG (it paints later in DOM order); pointer-events lets taps reach the rocket */
+.sat{position:absolute;z-index:2;pointer-events:none;font-family:var(--f-hand);font-size:24px;background:var(--lemon);color:var(--on-accent);border:2px solid var(--line);border-radius:14px;padding:4px 12px;box-shadow:3px 3px 0 var(--shadow);white-space:nowrap}
 .sat.a{top:4%;left:-2%;transform:rotate(-8deg);animation:float 5s ease-in-out infinite}
-.sat.b{top:30%;right:-4%;background:var(--pink);transform:rotate(6deg);animation:float 6s ease-in-out -2s infinite}
+.sat.b{top:36%;right:-4%;background:var(--pink);transform:rotate(6deg);animation:float 6s ease-in-out -2s infinite}
 .star{position:absolute;width:14px;height:14px;background:var(--lemon);clip-path:polygon(50% 0,61% 38%,100% 50%,61% 62%,50% 100%,39% 62%,0 50%,39% 38%);animation:twinkle 2.4s ease-in-out infinite}
+@media (max-width:480px){.sat{font-size:19px;padding:3px 10px}.sat.b{right:-2%}}
 .balloon{position:absolute;z-index:1;width:54px;height:66px;border-radius:50%;border:3px solid var(--line);animation:rise 14s linear infinite;opacity:.9}
 .balloon::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:60px;background:var(--line);opacity:.5}
 
