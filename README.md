@@ -56,20 +56,22 @@
 - **Светлая и тёмная темы** в приглашениях: страницы следуют системной настройке.
 - **Без внешних данных:** если общей базы нет, ответы гостей сохраняются локально или отображаются текстом, который можно скопировать и отправить в мессенджер.
 - **Превью ссылок:** Open Graph-теги на каждой странице.
-- **Безопасность:** заголовки CSP, `X-Frame-Options`, `Referrer-Policy` и `Permissions-Policy` в файле [`_headers`](_headers).
+- **Безопасность:** строгий CSP без inline-скриптов, HSTS, `X-Frame-Options`, `Referrer-Policy` и `Permissions-Policy` в файле [`_headers`](_headers). Служебные файлы репозитория (README, schema.sql, tailwind/) на сайте отдают 404: это делает [`functions/_middleware.js`](functions/_middleware.js) вместе с [`_routes.json`](_routes.json).
 
 ## Структура
 
 ```
 .
-├── index.html            # tab switcher between the three works
-├── v1.html / v1.css      # targetologist business-card site (Tailwind)
-├── v2.html               # wedding invitation (self-contained, inline CSS/JS)
-├── v3.html               # kids birthday invitation (self-contained, inline CSS/JS)
+├── index.html / index.js # tab switcher between the three works
+├── v1.html / v1.css / v1.js  # targetologist business-card site (Tailwind)
+├── v2.html / v2.js       # wedding invitation (inline CSS, script in v2.js)
+├── v3.html / v3.js       # kids birthday invitation (inline CSS, script in v3.js)
+├── 404.html              # not-found page
 ├── azamat-dark-*.{avif,webp,jpg}  # portrait for v1
 ├── og-card.jpg           # link preview image (baseline JPEG)
 ├── docs/                 # README screenshots
 ├── _headers              # Cloudflare Pages security headers
+├── _routes.json          # which paths go through Functions (API + hidden repo files)
 └── tailwind/             # Tailwind config and build script for v1
 ```
 
@@ -79,10 +81,12 @@
 
 - **Гости без аккаунтов.** Браузер хранит случайный `guest_id`, по нему гость видит и меняет только свой ответ и свои подарки.
 - **Бронь подарка атомарная:** два гостя не смогут занять один подарок.
-- **Приватные поля** (заметки организаторам, блюдо, трансфер, песня) отдаются только по секретному ключу. Родители и молодожёны открывают страницу один раз со ссылкой `/v3?key=…` или `/v2?key=…`.
+- **Приватные поля** (заметки организаторам, блюдо, трансфер, песня) отдаются только по секретному ключу. Родители и молодожёны открывают страницу один раз со ссылкой `/v3#key=…` или `/v2#key=…`: фрагмент после `#` не уходит на сервер, а страница сразу убирает ключ из адресной строки. После пяти неверных ключей в минуту с одного IP API отвечает 429.
+- **Защита от спама:** с одного IP не больше 20 отправок в минуту, 30 новых ответов и 15 броней подарков в сутки (таблица `hits`). Одно имя может ответить только с одного устройства, поэтому чужой ответ не перезаписать.
+- **Минимум данных наружу:** на свадьбе гости видят пожелания с именем и первой буквой фамилии и не видят, кто что дарит; на дне рождения вместо времени ответа отдаётся только порядок.
 - **Без базы** страницы не ломаются: ответ сохраняется на устройстве или показывается текстом для копирования.
 
-Настройка один раз: создать базу D1 `invites`, выполнить [`schema.sql`](schema.sql) в консоли, в Pages → Settings → Bindings добавить D1 с именем `DB`, в Variables and Secrets добавить секрет `OWNER_KEY`, затем пересобрать проект.
+Настройка один раз: создать базу D1 `invites`, выполнить [`schema.sql`](schema.sql) в консоли, в Pages → Settings → Bindings добавить D1 с именем `DB`, в Variables and Secrets добавить секреты `OWNER_KEY_WED` и `OWNER_KEY_M7` (у каждого праздника свой ключ, не короче 32 случайных символов; общий `OWNER_KEY` работает как запасной), затем пересобрать проект. Таблица `hits` для лимитов создаётся сама при первом запросе.
 
 ## Сборка CSS
 
